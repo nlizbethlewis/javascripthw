@@ -1,13 +1,37 @@
-var thisOne = 25;
-var thatOne = 100;
+function add(numOne,numTwo){
+	var plus = parseFloat(numOne) + parseFloat(numTwo),
+	addString = numOne + " + " + numTwo + "= " + plus; 
+	return addString; 
+ }
 
-var addition = thisOne + thatOne;
-var subtraction = thisOne - thatOne;
-var multiply = thisOne * thatOne;
-var divide = thisOne / thatOne;
+function sub(numOne,numTwo){
+	var subtract = parseFloat(numOne) - parseFloat(numTwo),
+	subString = numOne + " - " + numTwo + " = " + subtract; 
+	return subString; 
+ }
+
+ function mult(numOne,numTwo){
+ 	var multiply= parseFloat(numOne) * parseFloat(numTwo),
+	multString = numOne + " * " + numTwo + " = " + multiply; 
+	return multString; 
+ }
+
+ function divide(numOne,numTwo){
+	var divide= parseFloat(numOne) / parseFloat(numTwo),
+	divideString = numOne + " / " + numTwo + " = " + divide;
+	return divideString; 
+ }
+
+function populatehtml(operation){
+	var input1 = document.getElementById("firstInput").value;
+	var input2 = document.getElementById("secondInput").value;
+	var output = operation(input1, input2);
+	document.getElementById("result").innerText += output;
+}
 
 
-document.getElementById("addme").innerHTML= "When I add " +thisOne+ " and " +thatOne+ " it equals: " +addition;
-document.getElementById("subtractme").innerHTML= "When I subtract " +thisOne+ " and " +thatOne+ " it equals: " +subtraction;
-document.getElementById("multiplyme").innerHTML= "When I multiply " +thisOne+ " and " +thatOne+ " it equals: " +multiply;
-document.getElementById("divideme").innerHTML= "When I divide " +thisOne+ " and " +thatOne + " it equals: " +divide; 
+document.getElementById('add').onclick = function(){populatehtml(add)};
+document.getElementById('subtract').onclick = function(){populatehtml(sub)};
+document.getElementById('multiply').onclick = function(){populatehtml(mult)};
+document.getElementById('divide').onclick = function (){populatehtml(divide)};
+
